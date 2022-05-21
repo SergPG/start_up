@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
     <title>StartUp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -10,7 +11,18 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="d-flex flex-column h-100">
+    <header>
+       <%= render "shared/nav_main" %>
+    </header>
+
+    <main class="flex-shrink-0">
+      <div class="container">
+        <%= yield %>
+      </div>
+    </main>
+
+    <%= render "shared/footer" %>
+  
   </body>
 </html>
