@@ -1,10 +1,14 @@
 
 <%= link_to "New Article", new_article_path, class:"btn btn-primary" %>
 
+Our blog has <%= Article.public_count %> articles and counting!
+
 <div class="row  row-cols-1 row-cols-md-2 g-4 my-3">
 
 
   <% @articles.each do |article| %>
+    <% unless article.archived? %>
+   
     <div class="col">
             <div class="card">
               <div class="card-header">
@@ -20,10 +24,12 @@
                    Go somewhere</a>
               </div>
               <div class="card-footer text-muted">
-                2 days ago
+                
+Comments <%= article.comments.public_count %> !
               </div>
             </div>
     </div>
+   <% end %> 
   <% end %>
 
     
