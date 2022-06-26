@@ -2,6 +2,16 @@ require 'rails_helper'
 
 RSpec.describe ArticlesController, type: :controller do
 
+  context 'GET #index' do
+    it 'return a success response' do
+      get :index
+      expect(response).to eq(true)
+
+    end  
+
+  end
+  
+
     describe 'POST #create' do
         let(:params) do
             {
